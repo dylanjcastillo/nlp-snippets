@@ -4,16 +4,21 @@ import numpy as np
 def vectorize(list_of_docs, model, strategy):
     features = []
     size_output = model.vector_size
+    embedding_dict = model
+
     if strategy == "min-max":
         size_output *= 2
+
+    if hasattr(model, "wv"):
+        embedding_dict = model.wv
 
     for tokens in list_of_docs:
         zero_vector = np.zeros(size_output)
         vectors = []
         for token in tokens:
-            if token in model.wv:
+            if token in embedding_dict:
                 try:
-                    vectors.append(model.wv[token])
+                    vectors.append(embedding_dict[token])
                 except KeyError:
                     continue
         if vectors:
