@@ -154,7 +154,7 @@ def mbkmeans_clusters(X, k, mb=500, random_state=42, print_silhouette_values=Fal
     Returns:
         Trained clustering model and labels based on X.
     """
-    km = MiniBatchKMeans(n_clusters=k, batch_size=mb, random_state=random_state).fit(X)
+    km = MiniBatchKMeans(n_clusters=k, batch_size=mb).fit(X)
     print(f"For n_clusters = {k}")
     print(f"Silhouette coefficient: {silhouette_score(X, km.labels_):0.2f}")
     print(f"Inertia:{km.inertia_}")
