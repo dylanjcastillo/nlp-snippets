@@ -12,7 +12,7 @@ from sklearn.metrics import silhouette_samples, silhouette_score
 
 nltk.download("stopwords")
 
-ROOT_PATH = Path(__file__).resolve().parents[2]
+ROOT_PATH = Path(__file__).resolve().parents[1]
 NEWS_DATA = ROOT_PATH / "data" / "news_data.csv"
 STOPWORDS = set(stopwords.words("english") + ["news", "new", "top"])
 
@@ -141,14 +141,13 @@ def vectorize(list_of_docs, model, strategy):
     return features
 
 
-def mbkmeans_clusters(X, k, mb=500, random_state=42, print_silhouette_values=False):
+def mbkmeans_clusters(X, k, mb=500, print_silhouette_values=False):
     """Generate clusters.
 
     Args:
         X: Matrix of features.
         k: Number of clusters.
         mb: Size of mini-batches. Defaults to 500.
-        random_state: Random seed. Defaults to 42.
         print_silhouette_values: Print silhouette values per cluster.
 
     Returns:
