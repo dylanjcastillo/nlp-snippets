@@ -1,2 +1,3 @@
-# nlp-cookbook
- Recipes for common NLP tasks
+# NLP Snippets
+
+Code snippets for common NLP tasks
