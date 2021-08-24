@@ -1,5 +1,5 @@
 gensim==4.0.0b0
-jupyterlab==2.2.9
+jupyterlab==2.2.10
 nltk==3.5
 tqdm==4.54.1
 numpy==1.19.4
